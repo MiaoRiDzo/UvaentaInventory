@@ -12,7 +12,7 @@
     <StackPanel Orientation="Vertical">
 
         <StackPanel Orientation="Horizontal">
-            <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="360" TextChanged="tbSearch_TextChanged"/>
+            <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="200" TextChanged="tbSearch_TextChanged"/>
             <ComboBox Name="cbTypes" Width="160" Margin="10 2" DisplayMemberPath="EquipmentTypeName" SelectionChanged="cbTypes_SelectionChanged"/>
         </StackPanel>
         <DataGrid x:Name="equipGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232">
@@ -26,6 +26,16 @@
                         <DataTemplate>
                             <Button x:Name="editBtn" Click="editBtn_Click">
                                 <Image Source="/Resources/Image/Icons/edit.png"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--Отображение карточки-->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="cardBtn" Click="cardBtn_Click">
+                                <Image Source="/Resources/Image/Icons/info.png"/>
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

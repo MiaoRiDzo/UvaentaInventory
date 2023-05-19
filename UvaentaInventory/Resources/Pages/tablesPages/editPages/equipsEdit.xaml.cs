@@ -38,7 +38,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages.editPages
             {
                 _current = current;
                 newIns = false;
-                dpDatePurchase.Text = dpDatePurchase.DisplayDate.ToString();
+                dpDatePurchase.Text = _current.DatePurchase.ToString();
             }
             DataContext = _current;
         }
@@ -74,6 +74,8 @@ namespace UvaentaInventory.Resources.Pages.tablesPages.editPages
                 _current.ResponsibleID = responsible.ResponsibleID;
                 _current.EquipmentTypeID = type.EquipmentTypeID;
             }
+            DateTime date = DateTime.Parse(dpDatePurchase.Text);
+            _current.DatePurchase = date;
             EquipmentUventaEntities.getContext().Equipment.AddOrUpdate(_current);
             try
             {

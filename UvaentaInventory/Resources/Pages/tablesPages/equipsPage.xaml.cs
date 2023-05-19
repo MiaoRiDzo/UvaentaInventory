@@ -59,7 +59,21 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(tbSearch.Text))
+            {
+                // Предположим, что у вас есть DataGridView с именем dgUsers
+                List<Equipment> list = equipGrid.ItemsSource as List<Equipment>; // Получаем List<User> из DataSource
+                if (list != null) // Проверяем, что он не null
+                {
+                    string filter = tbSearch.Text; // Получаем текст из TextBox
+                    List<Equipment> filteredList = list.FindAll(equipment => equipment.EquipmentName.Contains(filter)); // Создаем отфильтрованный список по лямбда-выражению
+                    equipGrid.ItemsSource = filteredList; // Привязываем отфильтрованный список к DataGridView
+                }
+            }
+            else
+            {
+                equipGrid.ItemsSource = EquipmentUventaEntities.getContext().Equipment.ToList();
+            }
         }
 
         private void cbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,6 +87,12 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
             equipments = equipments.Where(eq => eq.EquipmentType.EquipmentTypeName == type.EquipmentTypeName).ToList();
             // Обновляем данные в таблице
             equipGrid.ItemsSource = equipments;
+        }
+
+        private void cardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            equipmentCardWin cardWin = new equipmentCardWin((sender as Button).DataContext as Equipment);
+            cardWin.ShowDialog();
         }
     }
 }

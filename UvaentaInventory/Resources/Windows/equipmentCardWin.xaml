@@ -1,0 +1,26 @@
+﻿<Window x:Class="UvaentaInventory.Resources.Windows.equipmentCardWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UvaentaInventory.Resources.Windows"
+        mc:Ignorable="d"
+        Title="equipmentCardWin" Height="500" Width="400">
+    <materialDesign:Card Margin="10" Padding="10">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="{Binding EquipmentName}" Margin="10" FontWeight="Bold" FontSize="22"/>
+            <TextBlock Text="{Binding EquipmentModel.Brand.BrandName}" Margin="10"  FontSize="18"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Responsible.ResponsibleFirstName}" Margin="10 10"  FontSize="18"/>
+                <TextBlock Text="{Binding Responsible.ResponsibleSecondName}" Margin="0 10"  FontSize="18"/>
+            </StackPanel>
+            <TextBlock Text="{Binding Cabinet.CabinetName}" Margin="10"  FontSize="18"/>
+            <TextBlock Text="{Binding EquipmentModel.EquipmentModelName}" Margin="10"  FontSize="18"/>
+            <TextBlock x:Name="tbDate" Text="" Margin="10"  FontSize="18"/>
+            <TextBlock Text="{Binding EquipmentType.EquipmentTypeName}" Margin="10"  FontSize="18"/>
+            <TextBlock Text="{Binding Status.StatusName}" Margin="10"  FontSize="18"/>
+            <Button Content="Закрыть" Margin="10" HorizontalAlignment="Right" FontSize="18" Click="Button_Click"/>
+        </StackPanel>
+    </materialDesign:Card>
+</Window>
