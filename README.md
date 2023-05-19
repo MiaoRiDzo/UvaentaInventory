@@ -25,12 +25,12 @@
 1. Клонировать репозиторий проекта с GitHub:
 
 ```bash
-git clone https://github.com/your_username/your_project_name.git
+git clone https://github.com/MiaoRiDzo/UvaentaInventory.git
 ```
 
 -Перейти в папку проекта:
 ```bash
-cd your_project_name
+cd UvaentaInventory
 ```
 -Создать и настроить базу данных MS SQL Server 2019 (подробнее см. документацию).
 
