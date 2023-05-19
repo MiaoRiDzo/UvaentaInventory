@@ -33,7 +33,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            win.mFrame.Navigate(new Pages.tablesPages.editPages.equipsEdit());
         }
 
         private void posBtn_Click(object sender, RoutedEventArgs e)

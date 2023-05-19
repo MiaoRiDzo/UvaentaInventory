@@ -141,6 +141,9 @@
     <Compile Include="Resources\Pages\tablesPages\editPages\cabinetEdit.xaml.cs">
       <DependentUpon>cabinetEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Pages\tablesPages\editPages\equipsEdit.xaml.cs">
+      <DependentUpon>equipsEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Pages\tablesPages\editPages\modelsEdit.xaml.cs">
       <DependentUpon>modelsEdit.xaml</DependentUpon>
     </Compile>
@@ -204,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Pages\tablesPages\editPages\cabinetEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Pages\tablesPages\editPages\equipsEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
