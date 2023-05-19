@@ -7,7 +7,7 @@
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="320" d:DesignWidth="620"
-      Title="positionEdit" >
+      Title="equipmentEdit" >
     <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBox x:Name="tbSN" Text="{Binding EquipmentSN}" materialDesign:HintAssist.Hint="Серийный номер" Margin="6" Width="260"/>
