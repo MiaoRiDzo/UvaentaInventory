@@ -33,7 +33,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            win.mFrame.Navigate(new Pages.tablesPages.editPages.equipsEdit());
+            win.mFrame.Navigate(new Pages.tablesPages.editPages.equipsEdit(null, win));
         }
 
         private void posBtn_Click(object sender, RoutedEventArgs e)
@@ -48,12 +48,13 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            win.mFrame.Navigate(new Pages.tablesPages.editPages.equipsEdit((sender as Button).DataContext as Equipment, win));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            EquipmentUventaEntities.getContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            equipGrid.ItemsSource = EquipmentUventaEntities.getContext().Equipment.ToList();
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)

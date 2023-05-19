@@ -18,7 +18,7 @@
             <ComboBox x:Name="cbType" SelectedItem="{Binding EquipmentType}" DisplayMemberPath="EquipmentTypeName" materialDesign:HintAssist.Hint="Тип оборудования" Margin="6"/>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Дата поступления:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6" Foreground="#FF707070"/>
-                <DatePicker x:Name="dpDatePurchase" DisplayDate="{Binding DatePurchase}" Margin="6" Width="131"/>
+                <DatePicker x:Name="dpDatePurchase" Text="{Binding DatePurchase}" DisplayDate="{Binding DatePurchase}" Margin="6" Width="131"/>
             </StackPanel>
             <Button Name="saveBtn" Content="Сохранить" HorizontalAlignment="Right"  Margin="10" Click="saveBtn_Click"/>
         </StackPanel>
