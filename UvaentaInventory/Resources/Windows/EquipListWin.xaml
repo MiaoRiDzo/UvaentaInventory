@@ -1,0 +1,38 @@
+﻿<Window x:Class="UvaentaInventory.Resources.Windows.EquipListWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:UvaentaInventory.Resources.Windows"
+        mc:Ignorable="d"
+        Title="EquipListWin" Height="450" Width="800">
+    <materialDesign:Card Padding="10" Margin="10">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ответственный:" FontSize="24" FontWeight="Bold"/>
+                <TextBlock Text="{Binding ResponsibleFirstName}" FontSize="24" Margin="10 0" FontWeight="Bold"/>
+                <TextBlock Text="{Binding ResponsibleSecondName}" FontSize="24" FontWeight="Bold"/>
+                <Button x:Name="exitBtn" Content="Закрыть" Margin="45 0" Click="exitBtn_Click"/>
+            </StackPanel>
+            <DataGrid x:Name="dgList" IsReadOnly="True" AutoGenerateColumns="False" Height="340" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование" Width="160" Binding="{Binding EquipmentName}"/>
+                    <DataGridTextColumn Header="Кабинет" Width="120" Binding="{Binding Cabinet.CabinetName}"/>
+                    <DataGridTextColumn Header="Модель" Binding="{Binding EquipmentModel.EquipmentModelName}"/>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding EquipmentType.EquipmentTypeName}"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="cardBtn" Click="cardBtn_Click">
+                                    <Image Source="/Resources/Image/Icons/info.png"/>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </materialDesign:Card>
+</Window>

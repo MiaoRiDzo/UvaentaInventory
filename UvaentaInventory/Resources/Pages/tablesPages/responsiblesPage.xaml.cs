@@ -106,5 +106,11 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
             tbSearch.Text = string.Empty;
             respGrid.ItemsSource = EquipmentUventaEntities.getContext().Responsible.ToList();
         }
+
+        private void listBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EquipListWin listWin = new EquipListWin((sender as Button).DataContext as Responsible);
+            listWin.ShowDialog();
+        }
     }
 }
