@@ -13,6 +13,8 @@
 
         <StackPanel Orientation="Horizontal">
             <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="240" TextChanged="tbSearch_TextChanged"/>
+            <ComboBox x:Name="cbRoles" Width="180" SelectedItem="{Binding Role}" Margin="10 2" DisplayMemberPath="RoleName" SelectionChanged="cbRoles_SelectionChanged"/>
+            <Button x:Name="btnReset" Content="Сбросить" Click="btnReset_Click" Margin="10 2"/>
         </StackPanel>
         <DataGrid x:Name="userGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232">
             <DataGrid.Columns>
