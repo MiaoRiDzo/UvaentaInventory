@@ -21,10 +21,10 @@
                 <DataGridTextColumn Header="Имя" Width="120" Binding="{Binding ResponsibleFirstName}"/>
                 <DataGridTextColumn Header="Фамилия" Width="120" Binding="{Binding ResponsibleSecondName}"/>
                 <DataGridTextColumn Header="Должность" Binding="{Binding Position.PositionName}"/>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="editBtn">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="editBtn" Click="editBtn_Click">
+                            <Button Click="editBtn_Click">
                                 <Image Source="/Resources/Image/Icons/edit.png"/>
                             </Button>
                         </DataTemplate>

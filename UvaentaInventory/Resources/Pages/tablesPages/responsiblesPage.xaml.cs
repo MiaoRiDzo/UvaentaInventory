@@ -23,12 +23,18 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
     public partial class responsiblesPage : Page
     {
         MainWindow win;
-        public responsiblesPage(MainWindow _win)
+        public responsiblesPage(MainWindow _win, CurrentUser currentUser)
         {
             InitializeComponent();
             win = _win;
             respGrid.ItemsSource = EquipmentUventaEntities.getContext().Responsible.ToList();
            cbPositions.ItemsSource = EquipmentUventaEntities.getContext().Position.ToList();
+            if(currentUser.Role == "Директор") { 
+                editBtn.Visibility = Visibility.Collapsed;
+                addBtn.Visibility = Visibility.Collapsed;
+                delBtn.Visibility = Visibility.Collapsed;
+                posBtn.Visibility = Visibility.Collapsed;
+            }
         }
 
 
