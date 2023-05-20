@@ -1,0 +1,37 @@
+﻿<Page x:Class="UvaentaInventory.Resources.Pages.tablesPages.usersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UvaentaInventory.Resources.Pages.tablesPages"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="320" d:DesignWidth="620"
+      Title="responsiblesPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <StackPanel Orientation="Vertical">
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="240" TextChanged="tbSearch_TextChanged"/>
+        </StackPanel>
+        <DataGrid x:Name="typesGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232" Width="400">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Имя пользователя" Binding="{Binding UserName}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="editBtn" Click="editBtn_Click">
+                                <Image Source="/Resources/Image/Icons/edit.png"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="addBtn" Content="Добавить" Margin="10 0" Click="addBtn_Click"/>
+            <Button x:Name="delBtn" Content="Удалить" Margin="10 0" Click="delBtn_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Page>
