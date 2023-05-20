@@ -171,6 +171,9 @@
     <Compile Include="Resources\Pages\tablesPages\typesPage.xaml.cs">
       <DependentUpon>typesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Pages\tablesPages\usersPage.xaml.cs">
+      <DependentUpon>usersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Pages\welcomePage.xaml.cs">
       <DependentUpon>welcomePage.xaml</DependentUpon>
     </Compile>
@@ -253,6 +256,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Pages\tablesPages\typesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Pages\tablesPages\usersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
