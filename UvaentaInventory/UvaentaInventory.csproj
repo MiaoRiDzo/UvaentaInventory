@@ -153,6 +153,9 @@
     <Compile Include="Resources\Pages\tablesPages\editPages\responsibleEdit.xaml.cs">
       <DependentUpon>responsibleEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Pages\tablesPages\editPages\roleEdit.xaml.cs">
+      <DependentUpon>roleEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Pages\tablesPages\editPages\typeEdit.xaml.cs">
       <DependentUpon>typeEdit.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,9 @@
     </Compile>
     <Compile Include="Resources\Pages\tablesPages\responsiblesPage.xaml.cs">
       <DependentUpon>responsiblesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Pages\tablesPages\rolesPage.xaml.cs">
+      <DependentUpon>rolesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\Pages\tablesPages\typesPage.xaml.cs">
       <DependentUpon>typesPage.xaml</DependentUpon>
@@ -235,6 +241,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Pages\tablesPages\editPages\roleEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Pages\tablesPages\editPages\typeEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Pages\tablesPages\responsiblesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Pages\tablesPages\rolesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +353,7 @@
       <DependentUpon>dbModel.edmx</DependentUpon>
       <LastGenOutput>dbModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Image\Icons\folder_users.png" />
     <Resource Include="Resources\Image\Icons\list.png" />
     <Resource Include="Resources\Image\Icons\info.png" />
     <Resource Include="Resources\Image\Icons\cabinet.png" />

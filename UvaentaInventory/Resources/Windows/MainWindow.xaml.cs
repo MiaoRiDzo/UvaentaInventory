@@ -59,5 +59,9 @@ namespace UvaentaInventory.Resources.Windows
             catch { }
         }
 
+        private void usersClick(object sender, RoutedEventArgs e)
+        {
+            mFrame.NavigationService.Navigate(new Pages.tablesPages.usersPage(this));
+        }
     }
 }
