@@ -159,6 +159,9 @@
     <Compile Include="Resources\Pages\tablesPages\editPages\typeEdit.xaml.cs">
       <DependentUpon>typeEdit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Pages\tablesPages\editPages\userEdit.xaml.cs">
+      <DependentUpon>userEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Pages\tablesPages\equipsPage.xaml.cs">
       <DependentUpon>equipsPage.xaml</DependentUpon>
     </Compile>
@@ -246,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Pages\tablesPages\editPages\typeEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Pages\tablesPages\editPages\userEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UvaentaInventory.Resources.Classes;
 using UvaentaInventory.Resources.Windows;
 
 namespace UvaentaInventory.Resources.Pages.tablesPages
@@ -26,6 +27,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
         {
             InitializeComponent();
             win = _win;
+            userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
         }
 
         private void roleBtn_Click(object sender, RoutedEventArgs e)
@@ -35,27 +37,53 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            win.mFrame.Navigate(new Pages.tablesPages.editPages.userEdit(null, win));
         }
 
         private void delBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var removes = userGrid.SelectedItems.Cast<User>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {removes.Count()} элементы?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    EquipmentUventaEntities.getContext().User.RemoveRange(removes);
+                    EquipmentUventaEntities.getContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            }
         }
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            win.mFrame.Navigate(new Pages.tablesPages.editPages.userEdit((sender as Button).DataContext as User, win));
         }
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            EquipmentUventaEntities.getContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
         }
 
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (!string.IsNullOrEmpty(tbSearch.Text))
+            {
+                // Предположим, что у вас есть DataGridView с именем dgUsers
+                List<User> list = userGrid.ItemsSource as List<User>; // Получаем List<User> из DataSource
+                if (list != null) // Проверяем, что он не null
+                {
+                    string filter = tbSearch.Text; // Получаем текст из TextBox
+                    List<User> filteredList = list.FindAll(user => user.UserName.Contains(filter)); // Создаем отфильтрованный список по лямбда-выражению
+                    userGrid.ItemsSource = filteredList; // Привязываем отфильтрованный список к DataGridView
+                }
+            }
+            else
+            {
+                userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
+            }
         }
     }
 }

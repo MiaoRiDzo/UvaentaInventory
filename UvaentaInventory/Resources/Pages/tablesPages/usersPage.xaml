@@ -14,7 +14,7 @@
         <StackPanel Orientation="Horizontal">
             <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="240" TextChanged="tbSearch_TextChanged"/>
         </StackPanel>
-        <DataGrid x:Name="typesGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232">
+        <DataGrid x:Name="userGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя пользователя" Binding="{Binding UserName}"/>
                 <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
