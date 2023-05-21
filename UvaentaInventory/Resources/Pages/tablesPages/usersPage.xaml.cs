@@ -28,6 +28,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
             InitializeComponent();
             win = _win;
             userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
+            cbRoles.ItemsSource = EquipmentUventaEntities.getContext().Role.ToList();
         }
 
         private void roleBtn_Click(object sender, RoutedEventArgs e)
@@ -84,6 +85,24 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
             {
                 userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
             }
+        }
+
+        private void cbBrands_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbRoles.SelectedIndex != -1)
+            {
+                List<User> modelLis = EquipmentUventaEntities.getContext().User.ToList();
+                Role role= cbRoles.SelectedItem as Role;
+                modelLis = modelLis.FindAll(x => x.Role.RoleName == role.RoleName);
+                userGrid.ItemsSource = modelLis;
+            }
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            cbRoles.SelectedIndex = -1;
+            tbSearch.Text = string.Empty;
+            userGrid.ItemsSource = EquipmentUventaEntities.getContext().User.ToList();
         }
     }
 }
