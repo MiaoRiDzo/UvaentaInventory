@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UvaentaInventory.Resources.Windows"
         mc:Ignorable="d"
-        Title="EquipListWin" Height="450" Width="800">
+        Title="Ювента || Список оборудования ||" Height="450" Width="800">
     <materialDesign:Card Padding="10" Margin="10">
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">

@@ -23,12 +23,18 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
     public partial class equipsPage : Page
     {
         MainWindow win;
-        public equipsPage(MainWindow _win)
+        public equipsPage(MainWindow _win, CurrentUser currentUser)
         {
             InitializeComponent();
             win = _win;
             equipGrid.ItemsSource = EquipmentUventaEntities.getContext().Equipment.ToList();
             cbTypes.ItemsSource = EquipmentUventaEntities.getContext().EquipmentType.ToList();
+            if (currentUser.Role == "Директор") { 
+                editBtn.Visibility = Visibility.Collapsed;
+                addBtn.Visibility = Visibility.Collapsed;
+                delBtn.Visibility = Visibility.Collapsed;
+                modelsBtn.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void addBtn_Click(object sender, RoutedEventArgs e)
@@ -36,14 +42,25 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
             win.mFrame.Navigate(new Pages.tablesPages.editPages.equipsEdit(null, win));
         }
 
-        private void posBtn_Click(object sender, RoutedEventArgs e)
+        private void modelsBtn_Click(object sender, RoutedEventArgs e)
         {
             win.mFrame.Navigate(new Pages.tablesPages.modelsPage(win));
         }
 
         private void delBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var removes = equipGrid.SelectedItems.Cast<Equipment>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {removes.Count()} элементы?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    EquipmentUventaEntities.getContext().Equipment.RemoveRange(removes);
+                    EquipmentUventaEntities.getContext().SaveChanges();
+                    MessageBox.Show("Данные удалены");
+                    equipGrid.ItemsSource = EquipmentUventaEntities.getContext().Equipment.ToList();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+            }
         }
 
         private void editBtn_Click(object sender, RoutedEventArgs e)
@@ -78,21 +95,31 @@ namespace UvaentaInventory.Resources.Pages.tablesPages
 
         private void cbTypes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (cbTypes.SelectedIndex != -1)
+            {
+                // Получаем список всех оборудований из базы данных
+                List<Equipment> equipments = EquipmentUventaEntities.getContext().Equipment.ToList();
+                // Получаем выбранный тип оборудования из ComboBox
+                EquipmentType type = cbTypes.SelectedItem as EquipmentType;
+                // Используем LINQ для фильтрации списка оборудований по выбранному типу
+                equipments = equipments.Where(eq => eq.EquipmentType.EquipmentTypeName == type.EquipmentTypeName).ToList();
             
-            // Получаем список всех оборудований из базы данных
-            List<Equipment> equipments = EquipmentUventaEntities.getContext().Equipment.ToList();
-            // Получаем выбранный тип оборудования из ComboBox
-            EquipmentType type = cbTypes.SelectedItem as EquipmentType;
-            // Используем LINQ для фильтрации списка оборудований по выбранному типу
-            equipments = equipments.Where(eq => eq.EquipmentType.EquipmentTypeName == type.EquipmentTypeName).ToList();
             // Обновляем данные в таблице
             equipGrid.ItemsSource = equipments;
+                }
         }
 
         private void cardBtn_Click(object sender, RoutedEventArgs e)
         {
             equipmentCardWin cardWin = new equipmentCardWin((sender as Button).DataContext as Equipment);
             cardWin.ShowDialog();
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            cbTypes.SelectedIndex = -1;
+            tbSearch.Text = string.Empty;
+            equipGrid.ItemsSource = EquipmentUventaEntities.getContext().Equipment.ToList();
         }
     }
 }

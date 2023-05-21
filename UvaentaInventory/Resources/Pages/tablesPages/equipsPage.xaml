@@ -14,6 +14,7 @@
         <StackPanel Orientation="Horizontal">
             <TextBox x:Name="tbSearch" materialDesign:HintAssist.Hint="Поиск" Margin="10 2" Width="200" TextChanged="tbSearch_TextChanged"/>
             <ComboBox Name="cbTypes" Width="160" Margin="10 2" DisplayMemberPath="EquipmentTypeName" SelectionChanged="cbTypes_SelectionChanged"/>
+            <Button x:Name="btnReset" Content="Сбросить" Click="btnReset_Click" Margin="10 2"/>
         </StackPanel>
         <DataGrid x:Name="equipGrid" Margin="10" IsReadOnly="True" AutoGenerateColumns="False" Height="232">
             <DataGrid.Columns>
@@ -21,10 +22,10 @@
                 <DataGridTextColumn Header="Кабинет" Width="120" Binding="{Binding Cabinet.CabinetName}"/>
                 <DataGridTextColumn Header="Модель" Binding="{Binding EquipmentModel.EquipmentModelName}"/>
                 <DataGridTextColumn Header="Тип" Binding="{Binding EquipmentType.EquipmentTypeName}"/>
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="editBtn">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="editBtn" Click="editBtn_Click">
+                            <Button Click="editBtn_Click">
                                 <Image Source="/Resources/Image/Icons/edit.png"/>
                             </Button>
                         </DataTemplate>
@@ -44,7 +45,7 @@
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="addBtn" Content="Добавить" Margin="10 0" Click="addBtn_Click"/>
-            <Button x:Name="posBtn" Content="Модели" Margin="10 0" Click="posBtn_Click"/>
+            <Button x:Name="modelsBtn" Content="Модели" Margin="10 0" Click="modelsBtn_Click"/>
             <Button x:Name="delBtn" Content="Удалить" Margin="10 0" Click="delBtn_Click"/>
         </StackPanel>
     </StackPanel>

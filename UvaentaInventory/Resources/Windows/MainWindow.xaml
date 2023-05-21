@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UvaentaInventory.Resources.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanMinimize" Height="450" Width="750">
+        Title="Ювента || Автоматизированная система учёта оборудования || " ResizeMode="CanMinimize" Height="450" Width="750">
     <Grid Margin="0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -27,11 +27,11 @@
                     <Image Source="/Resources/Image/Icons/user.png" Width="24" Height="24"/>
                 </Button>
                 <!--Пользователи-->
-                <Button Width="46" Height="46" Padding="0" Margin="0 10" ToolTip="Оборудование" Click="usersClick">
+                <Button x:Name="userBtn" Width="46" Height="46" Padding="0" Margin="0 10" ToolTip="Оборудование" Click="usersClick">
                     <Image Source="/Resources/Image/Icons/folder_users.png" Width="24" Height="24"/>
                 </Button>
                 <!--Кабинеты-->
-                <Button Width="46" Height="46" Padding="0" Margin="0 10" ToolTip="Кабинеты" Click="cabinetClick">
+                <Button x:Name="cabBtn" Width="46" Height="46" Padding="0" Margin="0 10" ToolTip="Кабинеты" Click="cabinetClick">
                     <Image Source="/Resources/Image/Icons/cabinet.png" Width="24" Height="24"/>
                 </Button>
             </StackPanel>

@@ -25,6 +25,17 @@ namespace UvaentaInventory.Resources.Windows
             InitializeComponent();
             currentUser = _currentUser;
             mFrame.Navigate(new Pages.welcomePage(currentUser));
+            this.Title += _currentUser.UserName;
+
+            switch (currentUser.Role) {
+                case "Бухгалтер":
+                    userBtn.Visibility = Visibility.Collapsed;
+                    break;
+                case "Директор":
+                    userBtn.Visibility = Visibility.Collapsed;
+                    cabBtn.Visibility = Visibility.Collapsed;
+                    break;
+            }
         }
 
         private void closeClick(object sender, RoutedEventArgs e)
@@ -39,11 +50,11 @@ namespace UvaentaInventory.Resources.Windows
         }
         private void equipClick(object sender, RoutedEventArgs e)
         {
-            mFrame.NavigationService.Navigate(new Pages.tablesPages.equipsPage(this));
+            mFrame.NavigationService.Navigate(new Pages.tablesPages.equipsPage(this, currentUser));
         }
         private void respClick(object sender, RoutedEventArgs e)
         {
-            mFrame.NavigationService.Navigate(new Pages.tablesPages.responsiblesPage(this));
+            mFrame.NavigationService.Navigate(new Pages.tablesPages.responsiblesPage(this, currentUser));
         }
         private void cabinetClick(object sender, RoutedEventArgs e)
         {

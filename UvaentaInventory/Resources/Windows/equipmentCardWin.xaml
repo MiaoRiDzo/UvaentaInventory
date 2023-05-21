@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:UvaentaInventory.Resources.Windows"
         mc:Ignorable="d"
-        Title="equipmentCardWin" Height="500" Width="400">
+        Title="Ювента || Информация об объекте ||" Height="500" Width="400">
     <materialDesign:Card Margin="10" Padding="10">
         <StackPanel Orientation="Vertical">
             <TextBlock Text="{Binding EquipmentName}" Margin="10" FontWeight="Bold" FontSize="22"/>
