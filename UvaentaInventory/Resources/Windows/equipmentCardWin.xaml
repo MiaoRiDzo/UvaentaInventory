@@ -20,7 +20,10 @@
             <TextBlock x:Name="tbDate" Text="" Margin="10"  FontSize="18"/>
             <TextBlock Text="{Binding EquipmentType.EquipmentTypeName}" Margin="10"  FontSize="18"/>
             <TextBlock Text="{Binding Status.StatusName}" Margin="10"  FontSize="18"/>
-            <Button Content="Закрыть" Margin="10" HorizontalAlignment="Right" FontSize="18" Click="Button_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--<Button Content="Отчёт" Name="reportBtn" Margin="10" HorizontalAlignment="Right" FontSize="18" Click="reportBtn_Click"/>-->
+                <Button Content="Закрыть" Margin="10" HorizontalAlignment="Right" FontSize="18" Click="Button_Click"/>
+            </StackPanel>
         </StackPanel>
     </materialDesign:Card>
 </Window>

@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UvaentaInventory.Resources.Classes;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
 
 namespace UvaentaInventory.Resources.Windows
 {
@@ -32,6 +37,11 @@ namespace UvaentaInventory.Resources.Windows
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void reportBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
