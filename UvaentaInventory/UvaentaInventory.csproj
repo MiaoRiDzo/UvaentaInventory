@@ -375,6 +375,7 @@
       <DependentUpon>dbModel.edmx</DependentUpon>
       <LastGenOutput>dbModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\Dictionarys\script.sql" />
     <Resource Include="Resources\Image\logo.ico" />
     <Resource Include="Resources\Image\logo.png" />
     <Resource Include="Resources\Image\Icons\folder_users.png" />
