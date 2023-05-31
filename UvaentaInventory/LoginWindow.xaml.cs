@@ -29,23 +29,50 @@ namespace UvaentaInventory
 
         private void entered_Click(object sender, RoutedEventArgs e)
         {
+            // Создаем новый объект типа CurrentUser
             CurrentUser currentUser = new CurrentUser();
+
+            // Получаем список всех пользователей из базы данных
             List<User> users = EquipmentUventaEntities.getContext().User.ToList();
+
+            // Итерируемся по каждому пользователю в списке
             foreach (User user in users)
             {
-                if (user.Login == txtLogin.Text) {
+                // Проверяем, совпадает ли логин пользователя с введенным текстом в поле txtLogin
+                if (user.Login == txtLogin.Text)
+                {
+                    // Если совпадение найдено, сохраняем информацию о пользователе в объекте currentUser
                     currentUser.UserName = user.UserName;
                     currentUser.Role = user.Role.RoleName;
                     currentUser.Password = user.Password;
+
+                    // Прерываем цикл, так как нашли нужного пользователя
                     break;
                 }
             }
-                if(currentUser.UserName == null) { MessageBox.Show("Не верный логин");  }
-                if(currentUser.Password == txtPassword.Password)
-                {
-                    new MainWindow(currentUser).Show();
-                    this.Close();
-                }else if(currentUser.Password != txtPassword.Password) { MessageBox.Show("Не верный пароль!"); }
+
+            // Проверяем, был ли найден пользователь с таким логином
+            if (currentUser.UserName == null)
+            {
+                // Если пользователь не найден, выводим сообщение об ошибке
+                MessageBox.Show("Неверный логин");
+            }
+
+            // Проверяем, совпадает ли пароль пользователя с введенным текстом в поле txtPassword
+            if (currentUser.Password == txtPassword.Password)
+            {
+                // Если пароль совпадает, открываем новое окно MainWindow и передаем в него объект currentUser
+                new MainWindow(currentUser).Show();
+
+                // Закрываем текущее окно
+                this.Close();
+            }
+            else if (currentUser.Password != txtPassword.Password)
+            {
+                // Если пароль не совпадает, выводим сообщение об ошибке
+                MessageBox.Show("Неверный пароль!");
+            }
         }
+
     }
 }

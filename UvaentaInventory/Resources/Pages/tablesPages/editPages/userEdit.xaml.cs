@@ -35,7 +35,7 @@ namespace UvaentaInventory.Resources.Pages.tablesPages.editPages
                 _current = current;
                 newIns = false;
             }
-            DataContext = current;
+            DataContext = _current;
             cbRole.ItemsSource = EquipmentUventaEntities.getContext().Role.ToList();
         }
 

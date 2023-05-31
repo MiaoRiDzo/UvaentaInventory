@@ -24,9 +24,9 @@ namespace UvaentaInventory.Resources.Windows
         {
             InitializeComponent();
             currentUser = _currentUser;
-            mFrame.Navigate(new Pages.welcomePage(currentUser));
             this.Title += _currentUser.UserName;
 
+            mFrame.Navigate(new Pages.welcomePage(currentUser));
             switch (currentUser.Role) {
                 case "Бухгалтер":
                     userBtn.Visibility = Visibility.Collapsed;
